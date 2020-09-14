@@ -15,7 +15,7 @@
 ##    You should have received a copy of the GNU Affero General Public License
 ##    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
-FROM monogramm/docker-frappe:13-debian
+FROM fiisoft/docker-frappe:13-debian
 
 ARG VERSION=v13.0.0-beta.1
 

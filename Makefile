@@ -1,11 +1,11 @@
 DOCKER_REPO=fiisoft
-DOCKER_IMAGE=erpnext
+DOCKER_IMAGE=docker-erpnext
 VERSION_BASE?=12
 VERSION?=v12.11.2
 FLAVOUR?=alpine
 BUILD_DIR:=./images/$(VERSION_BASE)/$(FLAVOUR)
 DATE_TAG:=$(DOCKER_REPO)/$(DOCKER_IMAGE):$(shell date +%Y%m%d)
-BASE_TAG:=$(DOCKER_REPO)/$(DOCKER_IMAGE):$(VERSION_BASE)
+BASE_TAG:=$(DOCKER_REPO)/$(DOCKER_IMAGE):$(VERSION_BASE)-$(FLAVOUR)
 FULL_TAG:=$(DOCKER_REPO)/$(DOCKER_IMAGE):$(VERSION)-$(FLAVOUR)
 
 build-image:
@@ -15,7 +15,7 @@ tag-image:
 	docker tag $(DATE_TAG) $(BASE_TAG)
 	docker tag $(DATE_TAG) $(FULL_TAG)
 
-push-image:
+push:
 	docker push $(FULL_TAG)
 
-build: build-image tag-image push-image
+build: build-image tag-image

@@ -21,7 +21,7 @@ function version_greater_or_equal() {
 
 min_version=10
 
-dockerRepo="monogramm/docker-frappe"
+dockerRepo="fiisoft/docker-frappe"
 latests=(
 	13.0.0-beta.1
 	$( curl -fsSL 'https://api.github.com/repos/frappe/erpnext/tags' |tac|tac| \
